@@ -1,0 +1,8 @@
+@use '../../colors.scss' as c;
+@use '../../functions.scss' as f;
+
+.banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
