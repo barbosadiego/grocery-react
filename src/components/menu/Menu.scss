@@ -1,0 +1,21 @@
+@use '../../colors.scss' as c;
+@use '../../functions.scss' as f;
+
+.nav {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+
+  &__links {
+    display: flex;
+    gap: 1rem;
+    margin-right: auto;
+
+    li {
+      cursor: pointer;
+    }
+  }
+
+  .btn {
+    margin-right: 3rem;
+  }
+}

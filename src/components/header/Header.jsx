@@ -1,3 +1,5 @@
+import Menu from '../menu/Menu';
+
 import './Header.scss';
 
 import heart from '../../images/Love.svg';
@@ -21,6 +23,7 @@ const Header = () => {
         </div>
       </div>
       <hr />
+      <Menu />
     </header>
   );
 };
