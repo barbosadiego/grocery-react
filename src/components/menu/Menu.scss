@@ -10,8 +10,24 @@
     gap: 1rem;
     margin-right: auto;
 
-    li {
-      cursor: pointer;
+    a {
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        position: absolute;
+        bottom: -5px;
+        left: 0px;
+        background-color: c.$orange;
+        display: inline-block;
+        transition: 0.3s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
     }
   }
 

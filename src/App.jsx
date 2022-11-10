@@ -1,14 +1,26 @@
-import './App.scss';
-import Banner from './components/banner/Banner';
+import { Route, Routes } from 'react-router-dom';
+
 import Header from './components/header/Header';
-import Hero from './components/hero/Hero';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Shop from './pages/Shop';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+
+import './App.scss';
 
 const App = () => {
   return (
     <>
       <Header />
-      <Hero />
-      <Banner />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </>
   );
 };
