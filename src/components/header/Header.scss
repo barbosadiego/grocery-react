@@ -1,0 +1,45 @@
+@use '../../colors.scss' as c;
+@use '../../functions.scss' as f;
+
+.header {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .logo {
+    color: c.$orange;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+
+  input {
+    flex: 1;
+    margin-inline: 3rem;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    border: none;
+    background-color: c.$grey;
+    background-image: url(../../images/Search.svg);
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+    background-size: 20px;
+    outline: none;
+  }
+
+  .icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    img {
+      width: 25px;
+    }
+  }
+
+  hr {
+    border: 1px solid c.$orange;
+  }
+}

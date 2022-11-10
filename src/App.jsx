@@ -1,7 +1,8 @@
 import './App.scss';
+import Header from './components/header/Header';
 
 const App = () => {
-  return <p>ola mundo</p>;
+  return <Header />;
 };
 
 export default App;
