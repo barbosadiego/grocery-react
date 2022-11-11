@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { MenuProvider } from './contexts/MenuContext';
 
 import Header from './components/header/Header';
 
@@ -13,7 +14,9 @@ import './App.scss';
 const App = () => {
   return (
     <>
-      <Header />
+      <MenuProvider>
+        <Header />
+      </MenuProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
