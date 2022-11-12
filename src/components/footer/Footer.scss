@@ -1,0 +1,33 @@
+@use '../../colors.scss' as c;
+@use '../../functions.scss' as f;
+
+.footer {
+  background-color: transparentize($color: c.$green, $amount: 0.74);
+  &__items {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 500px) {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-size: f.rem(23);
+    }
+
+    li:not(.title) {
+      padding: 0.7rem 0;
+      text-transform: capitalize;
+    }
+
+    .social {
+      display: flex;
+    }
+  }
+}
