@@ -1,20 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useApi from '../../hooks/useApi';
 import './Products.scss';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const api = useApi();
 
   useEffect(() => {
     const getProducts = async () => {
-      const data = await fetch(
-        'https://dummyjson.com/products/category/groceries',
-      );
-      const res = await data.json();
-
-      if (res.products) {
-        setProducts(res.products);
-      }
+      const data = await api.getItems();
+      setProducts(data);
     };
 
     getProducts();
