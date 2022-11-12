@@ -16,8 +16,6 @@ const Products = () => {
     getProducts();
   }, []);
 
-  console.log(products);
-
   return (
     <section className="products container">
       <div className="products__list">
