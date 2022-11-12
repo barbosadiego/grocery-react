@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import './Card.scss';
 
-export default function Card(item) {
+export default function Card({ item }) {
   return (
     <div className="item">
       <div className="discount">{item.discountPercentage}%</div>
