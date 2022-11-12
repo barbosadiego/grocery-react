@@ -1,0 +1,30 @@
+@use '../../colors.scss' as c;
+@use '../../functions.scss' as f;
+
+.item {
+  padding: 1rem;
+  flex: 1 0 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: c.$grey;
+  border-radius: 5px;
+
+  .brand {
+    font-size: f.rem(16);
+    text-transform: capitalize;
+  }
+
+  .discount {
+    align-self: start;
+    left: 10px;
+    top: 10px;
+    background-color: c.$green;
+    padding: 5px 10px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: c.$white;
+  }
+}
