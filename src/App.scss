@@ -48,3 +48,13 @@ a {
   cursor: pointer;
   border: none;
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: c.$orange;
+  border-radius: 5px;
+}
