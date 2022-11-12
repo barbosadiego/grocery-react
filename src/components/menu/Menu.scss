@@ -6,6 +6,7 @@
   margin-bottom: 1rem;
   //mobile
   @media screen and (max-width: 768px) {
+    z-index: 10;
     position: fixed;
     left: -100%;
     background-color: c.$white;

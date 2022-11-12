@@ -2,6 +2,7 @@
 @use '../../functions.scss' as f;
 
 .hero {
+  padding: 0 20px;
   &__grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -26,5 +27,12 @@
         }
       }
     }
+  }
+
+  .slide-item {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 2rem;
   }
 }

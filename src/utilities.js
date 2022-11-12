@@ -1,6 +1,6 @@
 export function isMobile() {
   const winWidth = window.innerWidth;
-  // console.log('windows width check');
+  console.log('windows width check');
   return winWidth <= 768 ? true : false;
 }
 

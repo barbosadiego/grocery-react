@@ -16,7 +16,6 @@ const Header = () => {
   const { toggleMenu } = useContext(MenuContext);
 
   function screenTest(e) {
-    console.log(e);
     if (e.matches) {
       setMobile(true);
     } else {
