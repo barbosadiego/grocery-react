@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../components/card/Card';
 import useApi from '../hooks/useApi';
 
@@ -21,10 +22,23 @@ const Shop = () => {
     <>
       <section className="shop">
         <div className="container">
-          <h1>shop</h1>
+          <div className="header">
+            <h1>shop</h1>
+            <Link to="/cart" className="btn">
+              View Cart
+            </Link>
+          </div>
+
           <div className="items">
             {items.map((item) => {
-              return <Card item={item} key={item.id} />;
+              return (
+                <Card
+                  item={item}
+                  key={item.id}
+                  linkBtn={false}
+                  cartBtn={true}
+                />
+              );
             })}
           </div>
         </div>

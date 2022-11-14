@@ -4,8 +4,14 @@
 .shop {
   margin: 1rem 20px;
 
-  h1 {
+  & .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
+  }
+
+  h1 {
     text-transform: uppercase;
     text-align: center;
   }
