@@ -6,11 +6,11 @@ import './Menu.scss';
 
 const Menu = () => {
   const { showMenu, toggleMenu } = useContext(MenuContext);
-  const { handleAppActive } = useContext(GlobalContext);
+  const { disable } = useContext(GlobalContext);
 
   function handleClick() {
     toggleMenu();
-    handleAppActive();
+    disable();
   }
 
   return (
