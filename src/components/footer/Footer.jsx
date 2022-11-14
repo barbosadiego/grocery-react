@@ -69,7 +69,7 @@ export default function Footer() {
             </ul>
           </li>
         </ul>
-        <ul className="app">
+        <ul className="app-area">
           <li>
             <h4 className="title">download our app</h4>
           </li>
