@@ -20,15 +20,13 @@ const Shop = () => {
   return (
     <>
       <section className="shop">
-        <h1>shop</h1>
-        <div className="items container">
-          {items.map((item) => {
-            return (
-              <div className="item" key={item.id}>
-                <Card item={item} />
-              </div>
-            );
-          })}
+        <div className="container">
+          <h1>shop</h1>
+          <div className="items">
+            {items.map((item) => {
+              return <Card item={item} key={item.id} />;
+            })}
+          </div>
         </div>
       </section>
     </>
