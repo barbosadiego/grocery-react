@@ -15,7 +15,7 @@ const Header = () => {
   const [mobile, setMobile] = useState();
   const winWidht = window.matchMedia('(max-width: 768px)');
   const { toggleMenu } = useContext(MenuContext);
-  const { handleShopModal, handleAppActive } = useContext(GlobalContext);
+  const { handleShopModal, handleAppActive, state } = useContext(GlobalContext);
 
   function screenTest(e) {
     if (e.matches) {
@@ -52,8 +52,9 @@ const Header = () => {
               <button className="btn">
                 <img src={heart} alt="" />
               </button>
-              <button className="btn" onClick={handleModal}>
+              <button className="btn cart-icon" onClick={handleModal}>
                 <img src={shoppingCart} alt="" />
+                <span className="total">{state.shopCart.length}</span>
               </button>
               <button className="btn">
                 <img src={user} alt="" />
