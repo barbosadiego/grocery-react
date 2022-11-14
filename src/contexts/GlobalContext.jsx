@@ -6,6 +6,7 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     isShopModalActive: false,
     isAppActive: false,
+    shopCart: [],
   });
 
   function reducer(state, action) {
@@ -20,6 +21,17 @@ export const GlobalProvider = ({ children }) => {
           ...state,
           isAppActive: !state.isAppActive,
         };
+      case 'DISABLE':
+        return {
+          ...state,
+          isShopModalActive: false,
+          isAppActive: false,
+        };
+      case 'ADDITEM':
+        return {
+          ...state,
+          shopCart: [...state.shopCart, action.payload],
+        };
       default:
         return state;
     }
@@ -33,9 +45,24 @@ export const GlobalProvider = ({ children }) => {
     dispatch({ type: 'APPACTIVE' });
   }
 
+  function disable() {
+    dispatch({ type: 'DISABLE' });
+  }
+
+  function addItemToCart(item) {
+    dispatch({ type: 'ADDITEM', payload: item });
+    console.log(state.shopCart);
+  }
+
   return (
     <GlobalContext.Provider
-      value={{ reducer, handleShopModal, handleAppActive, state }}
+      value={{
+        handleShopModal,
+        handleAppActive,
+        disable,
+        addItemToCart,
+        state,
+      }}
     >
       {children}
     </GlobalContext.Provider>
