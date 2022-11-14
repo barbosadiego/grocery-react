@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { MenuProvider } from './contexts/MenuContext';
+import { useContext } from 'react';
+import { GlobalContext } from './contexts/GlobalContext';
 
 import Header from './components/header/Header';
 
@@ -11,10 +13,13 @@ import Contact from './pages/Contact';
 
 import './App.scss';
 import Footer from './components/footer/Footer';
+import ShopModal from './components/shopmodal/ShopModal';
 
 const App = () => {
+  const { state } = useContext(GlobalContext);
+
   return (
-    <>
+    <div className={`app ${state.isAppActive ? 'active' : ''}`}>
       <MenuProvider>
         <Header />
       </MenuProvider>
@@ -30,7 +35,9 @@ const App = () => {
       </main>
 
       <Footer />
-    </>
+
+      <ShopModal />
+    </div>
   );
 };
 
