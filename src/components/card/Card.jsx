@@ -19,9 +19,11 @@ export default function Card({ item, cartBtn = false, linkBtn = true }) {
         </Link>
       )}
       {cartBtn && (
-        <button className="btn" onClick={() => addItemToCart(item)}>
-          add to cart
-        </button>
+        <Link to="/cart">
+          <button className="btn" onClick={() => addItemToCart(item)}>
+            add to cart
+          </button>
+        </Link>
       )}
     </div>
   );
