@@ -51,7 +51,6 @@ export const GlobalProvider = ({ children }) => {
 
   function addItemToCart(item) {
     dispatch({ type: 'ADDITEM', payload: item });
-    console.log(state.shopCart);
   }
 
   return (
