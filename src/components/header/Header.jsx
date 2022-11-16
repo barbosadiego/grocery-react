@@ -10,12 +10,14 @@ import shoppingCart from '../../images/ShopCart.svg';
 import user from '../../images/User.svg';
 
 import './Header.scss';
+import { CartContext } from '../../contexts/CartContext';
 
 const Header = () => {
   const [mobile, setMobile] = useState();
   const winWidht = window.matchMedia('(max-width: 768px)');
   const { toggleMenu } = useContext(MenuContext);
-  const { handleShopModal, handleAppActive, state } = useContext(GlobalContext);
+  const { handleShopModal, handleAppActive } = useContext(GlobalContext);
+  const { cart } = useContext(CartContext);
 
   function screenTest(e) {
     if (e.matches) {
@@ -54,7 +56,7 @@ const Header = () => {
               </button>
               <button className="btn cart-icon" onClick={handleModal}>
                 <img src={shoppingCart} alt="" />
-                <span className="total">{state.shopCart.length}</span>
+                <span className="total">{cart.length}</span>
               </button>
               <button className="btn">
                 <img src={user} alt="" />
