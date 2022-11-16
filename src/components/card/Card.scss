@@ -11,6 +11,8 @@
   margin-bottom: 1rem;
   background-color: c.$grey;
   border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 
   .brand {
     font-size: f.rem(16);
@@ -19,6 +21,26 @@
 
   .btn {
     text-transform: capitalize;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: darken($color: c.$orange, $amount: 10%);
+    }
+  }
+
+  .msg {
+    display: none;
+    position: absolute;
+    bottom: 100px;
+    background-color: lighten($color: c.$green, $amount: 50%);
+    color: rgb(34, 78, 34);
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+    &.active {
+      display: block;
+    }
   }
 
   .discount {

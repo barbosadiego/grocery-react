@@ -1,11 +1,20 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { GlobalContext } from '../../contexts/GlobalContext';
+import { CartContext } from '../../contexts/CartContext';
 
 import './Card.scss';
 
 export default function Card({ item, cartBtn = false, linkBtn = true }) {
-  const { addItemToCart } = useContext(GlobalContext);
+  const { addItemToCart } = useContext(CartContext);
+  const [msg, setMsg] = useState(false);
+
+  function handleClick(item) {
+    addItemToCart(item);
+    setMsg(!msg);
+    setTimeout(() => {
+      setMsg(false);
+    }, 500);
+  }
 
   return (
     <div className="item">
@@ -18,12 +27,11 @@ export default function Card({ item, cartBtn = false, linkBtn = true }) {
           <button className="btn">buy</button>
         </Link>
       )}
+      <div className={`msg ${msg ? 'active' : ''}`}>item added!</div>
       {cartBtn && (
-        <Link to="/cart">
-          <button className="btn" onClick={() => addItemToCart(item)}>
-            add to cart
-          </button>
-        </Link>
+        <button className="btn" onClick={() => handleClick(item)}>
+          add to cart
+        </button>
       )}
     </div>
   );
