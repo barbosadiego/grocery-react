@@ -3,47 +3,50 @@
 
 .table {
   margin: 2rem 0;
+
   .title {
     display: grid;
-    grid-template-columns: 1fr 80px 180px;
+    grid-template-columns: 1fr 80px 150px 150px;
     text-transform: capitalize;
     font-weight: bold;
     padding: 1rem;
 
     & h3:nth-child(2),
-    & h3:nth-child(3) {
+    & h3:nth-child(3),
+    & h3:nth-child(4) {
       text-align: center;
     }
   }
+}
 
-  .data {
-    .item {
+.data {
+  .item {
+    display: grid;
+    grid-template-columns: 1fr 80px 150px 150px;
+    gap: 0;
+
+    .product {
       display: grid;
-      grid-template-columns: 1fr 80px 180px;
-      gap: 0;
+      grid-template-columns: 100px 1fr;
+      align-items: center;
+      gap: 1rem;
+      margin-right: 1rem;
 
-      .product {
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        align-items: center;
-        gap: 1rem;
-        margin-right: 1rem;
-
-        img {
-          width: 100%;
-          height: 100px;
-          object-fit: cover;
-        }
-
-        .desc {
-          grid-column: 1/-1;
-        }
+      img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
       }
 
-      .qty,
-      .price {
-        text-align: center;
+      .desc {
+        grid-column: 1/-1;
       }
+    }
+
+    .qty,
+    .price,
+    .price-total {
+      text-align: center;
     }
   }
 }

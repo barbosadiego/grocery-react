@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import './ProductCart.scss';
 
 export default function ProductCart({ item }) {
   const [qty, setQty] = useState(1);
   const [price, setPrice] = useState(0);
-
-  useEffect(() => {
-    setPrice(qty * item.price);
-  }, [qty]);
 
   return (
     <div className="data">
@@ -24,7 +21,8 @@ export default function ProductCart({ item }) {
           value={qty}
           onChange={(e) => setQty(e.target.value)}
         />
-        <div className="price">{price}</div>
+        <div className="price">{item.price}</div>
+        <div className="price-total">{price}</div>
       </div>
     </div>
   );
