@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useState } from 'react';
 
 export const GlobalContext = createContext();
 
@@ -6,7 +6,6 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     isShopModalActive: false,
     isAppActive: false,
-    shopCart: [],
   });
 
   function reducer(state, action) {
@@ -27,11 +26,7 @@ export const GlobalProvider = ({ children }) => {
           isShopModalActive: false,
           isAppActive: false,
         };
-      case 'ADDITEM':
-        return {
-          ...state,
-          shopCart: [...state.shopCart, action.payload],
-        };
+
       default:
         return state;
     }
@@ -49,17 +44,12 @@ export const GlobalProvider = ({ children }) => {
     dispatch({ type: 'DISABLE' });
   }
 
-  function addItemToCart(item) {
-    dispatch({ type: 'ADDITEM', payload: item });
-  }
-
   return (
     <GlobalContext.Provider
       value={{
         handleShopModal,
         handleAppActive,
         disable,
-        addItemToCart,
         state,
       }}
     >
