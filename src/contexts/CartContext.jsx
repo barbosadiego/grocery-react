@@ -1,9 +1,10 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [totalSpend, setTotalSpend] = useState([]);
 
   function addItemToCart(item) {
     const cartItem = cart.find((obj) => obj.id === item.id);
@@ -23,13 +24,36 @@ export const CartProvider = ({ children }) => {
     }
   }
 
-  function removeItemToCart() {}
+  function removeItemFromCart(id) {
+    const copyCart = [...cart].filter((item) => item.id !== id);
+    setCart(copyCart);
+  }
 
-  function clearCart() {}
+  function clearCart() {
+    setCart([]);
+  }
+
+  useEffect(() => {
+    const localItens = JSON.parse(localStorage.getItem('grocery')) || [];
+    setCart(localItens);
+    console.log(localItens);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('grocery', JSON.stringify(cart));
+    // console.log('cart', cart);
+  }, [cart]);
 
   return (
     <CartContext.Provider
-      value={{ addItemToCart, removeItemToCart, clearCart, cart }}
+      value={{
+        addItemToCart,
+        removeItemFromCart,
+        clearCart,
+        setTotalSpend,
+        totalSpend,
+        cart,
+      }}
     >
       {children}
     </CartContext.Provider>

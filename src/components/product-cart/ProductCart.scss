@@ -6,7 +6,7 @@
 
   .title {
     display: grid;
-    grid-template-columns: 1fr 80px 150px 150px;
+    grid-template-columns: 1fr 150px 150px 150px;
     text-transform: capitalize;
     font-weight: bold;
     padding: 1rem;
@@ -22,7 +22,7 @@
 .data {
   .item {
     display: grid;
-    grid-template-columns: 1fr 80px 150px 150px;
+    grid-template-columns: 1fr 150px 150px 150px;
     gap: 0;
 
     .product {
@@ -43,7 +43,34 @@
       }
     }
 
-    .qty,
+    .qty {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > span {
+        display: inline-block;
+      }
+      &-total {
+        margin: 0px 8px;
+      }
+      &-btn {
+        background-color: c.$orange;
+        border-color: c.$orange;
+        color: c.$white;
+        width: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-style: f.rem(19);
+        &:active {
+          background-color: lighten($color: c.$orange, $amount: 5%);
+        }
+      }
+    }
+
     .price,
     .price-total {
       text-align: center;
